@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">El Tiempo</string>
+    <string name="province">Provincia</string>
+    <string name="search">Buscar</string>
+    <string name="askProvinceName">Por favor Seleccione una provincia</string>
+    <string-array name="ProvinceName">
+        <item>Buscar Province</item>
+        <item>Alava</item>
+        <item>Albacete</item>
+        <item>Alicante</item>
+        <item>Almeria</item>
+        <item>Asturias</item>
+        <item>Avila</item>
+        <item>Badajoz</item>
+        <item>Barcelona</item>
+        <item>Burgos</item>
+        <item>Caceres</item>
+        <item>Cadiz</item>
+        <item>Cantabria</item>
+        <item>Castellon</item>
+        <item>Ciudad Real</item>
+        <item>Cordoba</item>
+        <item>La Coruna</item>
+        <item>Cuenca</item>
+        <item>Gerona</item>
+        <item>Granada</item>
+        <item>Guadalajara</item>
+        <item>Guipuzcoa</item>  <!--Coge el de san sebastian-->
+        <item>Huelva</item>
+        <item>Huesca</item>
+        <item>Baleares</item>
+        <item>Jaen</item>
+        <item>Leon</item>
+        <item>Lerida</item>
+        <item>Lugo</item>
+        <item>Madrid</item>
+        <item>Malaga</item>
+        <item>Murcia</item>
+        <item>Navarra</item>
+        <item>Orense</item>
+        <item>Palencia</item>
+        <item>Las Palmas</item>
+        <item>Pontevedra</item>
+        <item>La Rioja</item>
+        <item>Salamanca</item>
+        <item>Segovia</item>
+        <item>Sevilla</item>
+        <item>Soria</item>
+        <item>Tarragona</item>
+        <item>Santa Cruz de Tenerife</item>
+        <item>Teruel</item>
+        <item>Toledo</item>
+        <item>Valencia</item>
+        <item>Valladolid</item>
+        <item>Vizcaya</item>    <!--Coge el de bilbao-->
+        <item>Zamora</item>
+        <item>Zaragoza</item>
+        <item>Ceuta</item>
+        <item>Melilla</item>
+    </string-array>
+</resources>
