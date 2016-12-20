@@ -3,9 +3,12 @@
     <string name="app_name">El Tiempo</string>
     <string name="province">Provincia</string>
     <string name="search">Buscar</string>
-    <string name="askProvinceName">Por favor Seleccione una provincia</string>
+    <string name="askProvinceName">Por favor seleccione una provincia</string>
+    <string name="weather">El Tiempo</string>
+    <string name="temperature">Temperatura</string>
+    <string name="wind">Viento</string>
     <string-array name="ProvinceName">
-        <item>Buscar Province</item>
+        <item>Buscar Provincia</item>
         <item>Alava</item>
         <item>Albacete</item>
         <item>Alicante</item>

@@ -3,6 +3,9 @@
     <string name="province">Province</string>
     <string name="search">Search</string>
     <string name="askProvinceName">Please Select Province Name</string>
+    <string name="weather">Weather</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind">Viento</string>
     <string-array name="ProvinceName">
         <item>Find Province</item>
         <item>Alava</item>

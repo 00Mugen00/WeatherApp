@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //Ejemplo: http://api.wunderground.com/api/6382c243f4bd1c6a/conditions/q/ES/Malaga.json
                 if(position!=0){
                     String url = "http://api.wunderground.com/api/GET YOUR KEY IN WEATHER UNDERGROUND/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
                     //Obtener el tiempo usando una petición http
@@ -48,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 TextView textView = (TextView) findViewById(R.id.textView2);
-                textView.setText(R.string.askProvinceName);
+                textView.setText(getString(R.string.askProvinceName));
             }
         });
     }
@@ -83,14 +82,14 @@ public class MainActivity extends AppCompatActivity {
             try {
                 JSONObject reader = new JSONObject(s);
                 StringBuilder weather = new StringBuilder();
-                weather.append("Province: ");
+                weather.append(getString(R.string.province)+": ");
                 weather.append(reader.getJSONObject("current_observation").getJSONObject("display_location").get("full"));
-                weather.append("\nWeather: ");
+                weather.append("\n"+getString(R.string.weather)+": ");
                 weather.append(reader.getJSONObject("current_observation").get("weather"));
-                weather.append("\nTemperature: ");
+                weather.append("\n"+getString(R.string.temperature)+": ");
                 weather.append(reader.getJSONObject("current_observation").get("temp_c"));
                 weather.append(" Cº");
-                weather.append("\nWind: ");
+                weather.append("\n"+getString(R.string.wind)+": ");
                 weather.append(reader.getJSONObject("current_observation").get("wind_kph"));
                 weather.append(" kph");
                 textView.setText(weather.toString());
