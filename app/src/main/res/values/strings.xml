@@ -2,8 +2,9 @@
     <string name="app_name">Weather Application</string>
     <string name="province">Province</string>
     <string name="search">Search</string>
-    <string name="askProvinceName">Please Input Province Name</string>
+    <string name="askProvinceName">Please Select Province Name</string>
     <string-array name="ProvinceName">
+        <item>Find Province</item>
         <item>Alava</item>
         <item>Albacete</item>
         <item>Alicante</item>
