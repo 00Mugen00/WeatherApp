@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                //Ejemplo: http://api.wunderground.com/api/6382c243f4bd1c6a/conditions/q/ES/Malaga.json
+                //Ejemplo: http://api.wunderground.com/api/GET A KEY FROM WUNDERGROUND/conditions/q/ES/Malaga.json
                 String url = "http://api.wunderground.com/api/6382c243f4bd1c6a/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
                 //Obtener el tiempo usando una petición http
                 Weather weather = new Weather();
