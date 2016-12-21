@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     //Obtener el tiempo usando una petición http
                     Weather weather = new Weather();
                     weather.execute(url);
-                }
+                } 
             }
 
             @Override
