@@ -1,9 +1,13 @@
 package com.example.johncarlo.weatherapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0){
-                    String url = "http://api.wunderground.com/api/GET YOUR KEY IN WEATHER UNDERGROUND/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
+                    String url = "http://api.wunderground.com/api/6382c243f4bd1c6a/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
                     //Obtener el tiempo usando una petición http
                     Weather weather = new Weather();
                     weather.execute(url);
@@ -50,6 +54,28 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText(getString(R.string.askProvinceName));
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.share_social:
+                TextView textView = (TextView)findViewById(R.id.textView2);
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, textView.getText());
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
     private class Weather extends AsyncTask<String,Void,String> {
 
@@ -93,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 weather.append(reader.getJSONObject("current_observation").get("wind_kph"));
                 weather.append(" kph");
                 textView.setText(weather.toString());
+
             } catch (JSONException e) {
                 textView.setText("Error: Unable to make request");
             }
