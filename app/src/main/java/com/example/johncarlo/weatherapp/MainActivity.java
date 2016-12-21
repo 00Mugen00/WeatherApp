@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0){
-                    String url = "http://api.wunderground.com/api/6382c243f4bd1c6a/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
+                    String url = "http://api.wunderground.com/api/GET YOUR KEY WEATHER UNDERGROUND/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
                     //Obtener el tiempo usando una petición http
                     Weather weather = new Weather();
                     weather.execute(url);
-                } 
+                }
             }
 
             @Override
