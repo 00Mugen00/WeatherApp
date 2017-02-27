@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0){
-                    String url = "http://api.wunderground.com/api/GET YOUR KEY WEATHER UNDERGROUND/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
+                    String url = "http://api.wunderground.com/api/6382c243f4bd1c6a/conditions/q/ES/"+((String) parent.getItemAtPosition(position))+".json";
                     //Obtener el tiempo usando una petición http
                     Weather weather = new Weather();
                     weather.execute(url);
@@ -105,21 +107,38 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             //Procesar el JSON
             TextView textView = (TextView) findViewById(R.id.textView2);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.activity_main);
             try {
                 JSONObject reader = new JSONObject(s);
-                StringBuilder weather = new StringBuilder();
-                weather.append(getString(R.string.province)+": ");
-                weather.append(reader.getJSONObject("current_observation").getJSONObject("display_location").get("full"));
-                weather.append("\n"+getString(R.string.weather)+": ");
-                weather.append(reader.getJSONObject("current_observation").get("weather"));
-                weather.append("\n"+getString(R.string.temperature)+": ");
-                weather.append(reader.getJSONObject("current_observation").get("temp_c"));
-                weather.append(" Cº");
-                weather.append("\n"+getString(R.string.wind)+": ");
-                weather.append(reader.getJSONObject("current_observation").get("wind_kph"));
-                weather.append(" kph");
-                textView.setText(weather.toString());
-
+                StringBuilder details = new StringBuilder();
+                details.append(getString(R.string.province)+": ");
+                details.append(reader.getJSONObject("current_observation").getJSONObject("display_location").get("full"));
+                details.append("\n"+getString(R.string.weather)+": ");
+                details.append(reader.getJSONObject("current_observation").get("weather"));
+                details.append("\n"+getString(R.string.temperature)+": ");
+                details.append(reader.getJSONObject("current_observation").get("temp_c"));
+                details.append(" Cº");
+                details.append("\n"+getString(R.string.wind)+": ");
+                details.append(reader.getJSONObject("current_observation").get("wind_kph"));
+                details.append(" kph");
+                details.append("\n"+getString(R.string.humidity)+": ");
+                details.append(reader.getJSONObject("current_observation").get("relative_humidity"));
+                textView.setText(details.toString());
+                if(reader.getJSONObject("current_observation").get("weather").equals("Clear")){
+                    relativeLayout.setBackgroundResource(R.drawable.clear);
+                }else if(reader.getJSONObject("current_observation").get("weather").equals("Partly Cloudy")){
+                    relativeLayout.setBackgroundResource(R.drawable.partlycloudy);
+                }else if(reader.getJSONObject("current_observation").get("weather").equals("Overcast")){
+                    relativeLayout.setBackgroundResource(R.drawable.overcast);
+                }else if(reader.getJSONObject("current_observation").get("weather").equals("Mostly Cloudy")){
+                    relativeLayout.setBackgroundResource(R.drawable.mostlycloudy);
+                } else if(reader.getJSONObject("current_observation").get("weather").equals("Rain")){
+                    relativeLayout.setBackgroundResource(R.drawable.rain);
+                } else if(reader.getJSONObject("current_observation").get("weather").equals("Scattered Clouds")){
+                    relativeLayout.setBackgroundResource(R.drawable.scatteredclouds);
+                } else if(reader.getJSONObject("current_observation").get("weather").equals("Drizzle")){
+                    relativeLayout.setBackgroundResource(R.drawable.drizzle);
+                }
             } catch (JSONException e) {
                 textView.setText("Error: Unable to make request");
             }

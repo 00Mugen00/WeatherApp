@@ -5,7 +5,8 @@
     <string name="askProvinceName">Please Select Province Name</string>
     <string name="weather">Weather</string>
     <string name="temperature">Temperature</string>
-    <string name="wind">Viento</string>
+    <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
     <string-array name="ProvinceName">
         <item>Find Province</item>
         <item>Alava</item>

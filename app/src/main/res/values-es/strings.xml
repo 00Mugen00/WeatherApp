@@ -7,6 +7,7 @@
     <string name="weather">El Tiempo</string>
     <string name="temperature">Temperatura</string>
     <string name="wind">Viento</string>
+    <string name="humidity">Humedad</string>
     <string-array name="ProvinceName">
         <item>Buscar Provincia</item>
         <item>Alava</item>
